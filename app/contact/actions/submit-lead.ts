@@ -16,19 +16,35 @@ export async function submitLead(
   formData: FormData
 ): Promise<FormState> {
   try {
-    // Extract Router.so fields
+    // Build payload: explicitly extract and fallback to empty string
+    const name = formData.get("Name")?.toString() || ""
+    const phoneNumber = formData.get("Phone Number")?.toString() || ""
+    const email = formData.get("Email")?.toString() || ""
+    const streetAddress = formData.get("Street Address")?.toString() || ""
+    const zipCode = formData.get("Zip Code")?.toString() || ""
+    const serviceRequested = formData.get("Service requested?")?.toString() || ""
+
+    // Explicitly build the payload with exact Router.so keys
     const payload = {
-      "Name": formData.get("Name")?.toString() || "",
-      "Phone Number": formData.get("Phone Number")?.toString() || "",
-      "Email": formData.get("Email")?.toString() || "",
-      "Street Address": formData.get("Street Address")?.toString() || "",
-      "Zip Code": formData.get("Zip Code")?.toString() || "",
-      "Service requested?": formData.get("Service requested?")?.toString() || "",
+      "Name": name,
+      "Phone Number": phoneNumber,
+      "Email": email,
+      "Street Address": streetAddress,
+      "Zip Code": zipCode,
+      "Service requested?": serviceRequested
     }
+
+    // Log payload for troubleshooting
+    console.log("ROUTERSO ENDPOINT:", ROUTERSO_ENDPOINT)
+    console.log("ROUTERSO API KEY:", ROUTERSO_API_KEY)
+    console.log("Payload about to POST:", JSON.stringify(payload))
+    console.log("Headers about to send:", {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${ROUTERSO_API_KEY}`
+    })
 
     // Validate user input
     const validatedFields = formSchema.safeParse(payload)
-
     if (!validatedFields.success) {
       return {
         errors: validatedFields.error.flatten().fieldErrors,
@@ -36,7 +52,7 @@ export async function submitLead(
       }
     }
 
-    // --- POST to Router.so ---
+    // POST to Router.so
     const response = await fetch(
       ROUTERSO_ENDPOINT,
       {
@@ -49,45 +65,30 @@ export async function submitLead(
       }
     )
 
-    if (!response.ok) {
-      let errorDetails: unknown = undefined
-      try {
-        errorDetails = await response.json()
-      } catch {
-        try {
-          errorDetails = await response.text()
-        } catch {
-          errorDetails = "Unknown error"
+        if (!response.ok) {
+          // Handle error response from Router.so
+          return {
+            message: "Failed to submit lead. Please try again later.",
+            errors: { server: ["Failed to submit lead."] }
+          }
+        }
+    
+        // Optionally, POST to Zapier webhook (if needed)
+        if (ZAPIER_WEBHOOK_URL) {
+          await fetch(ZAPIER_WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          })
+        }
+    
+        return {
+          message: "Lead submitted successfully!",
+        }
+      } catch (error) {
+        return {
+          message: "An unexpected error occurred. Please try again.",
+          errors: { server: [error instanceof Error ? error.message : "Unknown error"] }
         }
       }
-      console.error("Router.so API Error:", errorDetails)
-      return {
-        errors: undefined,
-        message: "An error occurred while submitting your request. Please try again later.",
-      }
     }
-
-    // --- POST to Zapier (don't block user if Zapier fails) ---
-    try {
-      await fetch(ZAPIER_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      })
-    } catch (zapError) {
-      console.error("Zapier webhook failed:", zapError)
-      // Do not return, just log the error
-    }
-
-    return {
-      errors: undefined,
-      message: "Thank you for your submission! We will be in touch shortly.",
-    }
-  } catch (error: unknown) {
-    console.error("Fetch Error:", error)
-    return {
-      errors: undefined,
-      message: "A network error occurred. Please check your connection and try again.",
-    }
-  }
-}

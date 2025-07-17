@@ -113,7 +113,6 @@ export function LeadForm() {
             {state.message}
           </div>
         )}
-        {/* DEV: See error details during testing */}
         {state.errors && (
           <pre className="text-xs text-red-600 mt-2">{JSON.stringify(state.errors, null, 2)}</pre>
         )}
