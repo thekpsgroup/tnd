@@ -1,78 +1,36 @@
 "use client"
 
-import { useFormStatus } from "react-dom"
-import { useActionState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
-import { useEffect } from "react"
-
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useToast } from "@/hooks/use-toast"
-import { submitLead } from "@/app/actions/submit-lead"
-import { SERVICES } from "@/lib/constants"
+import { useActionState } from "react"
+import { submitLead, formSchema } from "@/app/contact/actions/submit-lead"
+import { z } from "zod"
 
-const serviceTitles = [...SERVICES.map((s) => s.title), "Other"]
-
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  phoneNumber: z.string().min(10, { message: "Please enter a valid phone number." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  streetAddress: z.string().min(5, { message: "Please enter a valid street address." }),
-  zipCode: z.string().regex(/^\d{5}$/, { message: "Please enter a valid 5-digit zip code." }),
-  serviceRequested: z.string().min(3, { message: "Please select a service." }),
-})
-
-function SubmitButton() {
-  const { pending } = useFormStatus()
-  return (
-    <Button type="submit" disabled={pending} className="w-full">
-      {pending ? "Submitting..." : "Get My Free Estimate"}
-    </Button>
-  )
-}
+type FormSchemaType = z.infer<typeof formSchema>
 
 export function LeadForm() {
-  const { toast } = useToast()
-  const [state, formAction] = useActionState(submitLead, { message: "", errors: {} })
-
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      phoneNumber: "",
-      email: "",
-      streetAddress: "",
-      zipCode: "",
-      serviceRequested: "",
-    },
+      "Name": "",
+      "Phone Number": "",
+      "Email": "",
+      "Street Address": "",
+      "Zip Code": "",
+      "Service requested?": "",
+    }
   })
 
-  useEffect(() => {
-    if (state.message && !state.errors) {
-      toast({
-        title: "Success!",
-        description: state.message,
-      })
-      form.reset()
-    } else if (state.message && state.errors) {
-      toast({
-        title: "Error",
-        description: state.message,
-        variant: "destructive",
-      })
-    }
-  }, [state, toast, form])
+  const [state, formAction] = useActionState(submitLead, { message: "", errors: undefined })
 
   return (
     <Form {...form}>
       <form action={formAction} className="space-y-6">
         <FormField
           control={form.control}
-          name="name"
+          name="Name"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Full Name</FormLabel>
@@ -83,37 +41,35 @@ export function LeadForm() {
             </FormItem>
           )}
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <FormField
-            control={form.control}
-            name="phoneNumber"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Phone Number</FormLabel>
-                <FormControl>
-                  <Input type="tel" placeholder="(123) 456-7890" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email Address</FormLabel>
-                <FormControl>
-                  <Input type="email" placeholder="you@example.com" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
         <FormField
           control={form.control}
-          name="streetAddress"
+          name="Phone Number"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Phone Number</FormLabel>
+              <FormControl>
+                <Input placeholder="+19036034150" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="Email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email Address</FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="you@example.com" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="Street Address"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Street Address</FormLabel>
@@ -124,46 +80,42 @@ export function LeadForm() {
             </FormItem>
           )}
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <FormField
-            control={form.control}
-            name="zipCode"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Zip Code</FormLabel>
-                <FormControl>
-                  <Input placeholder="12345" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="serviceRequested"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Service Requested</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a service" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {serviceTitles.map((service) => (
-                      <SelectItem key={service} value={service}>
-                        {service}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-        <SubmitButton />
+        <FormField
+          control={form.control}
+          name="Zip Code"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Zip Code</FormLabel>
+              <FormControl>
+                <Input placeholder="75189" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="Service requested?"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Service Requested</FormLabel>
+              <FormControl>
+                <Input placeholder="Bathrooms" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <button type="submit" className="btn btn-primary w-full">Submit</button>
+        {state.message && (
+          <div className={state.errors ? "text-red-600 mt-2" : "text-green-600 mt-2"}>
+            {state.message}
+          </div>
+        )}
+        {/* DEV: See error details during testing */}
+        {state.errors && (
+          <pre className="text-xs text-red-600 mt-2">{JSON.stringify(state.errors, null, 2)}</pre>
+        )}
       </form>
     </Form>
   )
