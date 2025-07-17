@@ -1,27 +1,33 @@
 "use client"
 
-import LocationPageClient from "@/components/location-page-client"
-
-const McKinneyInfo = () => (
-  <>
-    <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Expert Remodeling in McKinney, TX</h1>
-    <p className="mt-4 text-lg text-muted-foreground">
-      TND Texas brings its signature quality and craftsmanship to McKinney, offering premium remodeling and construction
-      services for discerning clients.
-    </p>
-    <p className="mt-4 text-muted-foreground">
-      Whether you're updating a historic home or building a modern masterpiece, we are your trusted construction
-      partner.
-    </p>
-  </>
-)
+import { LocationPageClient } from "@/components/location-page-client"
+import { SERVICES } from "@/lib/constants"
 
 export default function McKinneyClient() {
   return (
     <LocationPageClient
-      locationName="McKinney"
-      locationInfo={<McKinneyInfo />}
-      imageUrl="/mckinney-texas-historic-downtown.png"
+      cityName="McKinney"
+      heroImageSrc="/mckinney-texas-historic-downtown.png.jpg"
+      heroImageAlt="The historic downtown square of McKinney, Texas"
+      pageTitle="Custom Home Projects in McKinney, TX"
+      metaDescription="In McKinney's historic and modern neighborhoods, TND Texas delivers exceptional quality in remodeling, roofing, and custom construction."
+      services={SERVICES}
+      mainContent={
+        <>
+          <h2>Enhancing McKinney's Unique Charm</h2>
+          <p>
+            With its unique blend of historic charm and modern growth, McKinney provides a beautiful canvas for our
+            work. TND Texas is honored to serve the McKinney community, offering bespoke remodeling and construction
+            services that respect the character of each home. Whether you reside in a historic property near the square
+            or a newer development, our team has the expertise to deliver a final product that feels just right.
+          </p>
+          <p>
+            We specialize in kitchen and bathroom renovations that blend style with function, durable roofing solutions
+            for Texas weather, and custom projects that make your home truly yours. Partner with TND Texas to invest in
+            your McKinney property with confidence.
+          </p>
+        </>
+      }
     />
   )
 }

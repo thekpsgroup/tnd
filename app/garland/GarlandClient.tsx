@@ -1,26 +1,33 @@
 "use client"
 
-import LocationPageClient from "@/components/location-page-client"
-
-const GarlandInfo = () => (
-  <>
-    <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Top-Rated General Contractor in Garland, TX</h1>
-    <p className="mt-4 text-lg text-muted-foreground">
-      Homeowners and businesses in Garland rely on TND Texas for professional and dependable construction services. We
-      are committed to quality from start to finish.
-    </p>
-    <p className="mt-4 text-muted-foreground">
-      Our extensive experience in the Dallas-Fort Worth area makes us the perfect choice for your next Garland project.
-    </p>
-  </>
-)
+import { LocationPageClient } from "@/components/location-page-client"
+import { SERVICES } from "@/lib/constants"
 
 export default function GarlandClient() {
   return (
     <LocationPageClient
-      locationName="Garland"
-      locationInfo={<GarlandInfo />}
-      imageUrl="/garland-texas-suburban-street.png"
+      cityName="Garland"
+      heroImageSrc="/garland-texas-suburban-street.jpg"
+      heroImageAlt="A quiet suburban street in Garland, Texas"
+      pageTitle="Garland's General Contractor for Home & Business"
+      metaDescription="TND Texas provides comprehensive construction services in Garland, including commercial build-outs, home additions, and complete remodels."
+      services={SERVICES}
+      mainContent={
+        <>
+          <h2>Building and Remodeling in Garland</h2>
+          <p>
+            TND Texas is proud to offer our full suite of general contracting services to the diverse and bustling city
+            of Garland. From residential remodels in established neighborhoods to commercial construction projects, our
+            team is equipped to handle jobs of any scale. We specialize in transforming spaces to meet the modern needs
+            of Garland's families and businesses.
+          </p>
+          <p>
+            Our services include everything from foundational roofing and siding to intricate interior work like custom
+            kitchens, bathrooms, and flooring. We are committed to providing Garland with reliable, high-quality
+            workmanship and transparent communication throughout every phase of the construction process.
+          </p>
+        </>
+      }
     />
   )
 }

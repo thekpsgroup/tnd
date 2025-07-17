@@ -24,13 +24,11 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 isolate">
-      <div className="container flex h-20 items-center justify-between">
-        {/* Left-aligned group */}
+      <div className="container flex h-24 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center space-x-2">
             <Image src="/logo.png" alt="TND Texas Logo" width={140} height={40} className="object-contain" />
           </Link>
-          {/* THE DEFINITIVE FIX: Override the component's internal flex-1 style with flex-initial */}
           <NavigationMenu className="hidden lg:flex flex-initial">
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -85,7 +83,6 @@ export default function Header() {
           </NavigationMenu>
         </div>
 
-        {/* Right-aligned group */}
         <div className="flex items-center gap-2">
           <Button asChild className="hidden lg:inline-flex">
             <Link href="/contact">Contact Us</Link>

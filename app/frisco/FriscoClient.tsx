@@ -1,22 +1,32 @@
 "use client"
 
-import LocationPageClient from "@/components/location-page-client"
-
-const FriscoInfo = () => (
-  <>
-    <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Luxury Construction in Frisco, TX</h1>
-    <p className="mt-4 text-lg text-muted-foreground">
-      For high-end construction and remodeling in Frisco, TND Texas delivers unparalleled quality and service. We
-      specialize in creating exceptional spaces.
-    </p>
-    <p className="mt-4 text-muted-foreground">
-      Our attention to detail and commitment to excellence make us the ideal choice for your Frisco home or business.
-    </p>
-  </>
-)
+import { LocationPageClient } from "@/components/location-page-client"
+import { SERVICES } from "@/lib/constants"
 
 export default function FriscoClient() {
   return (
-    <LocationPageClient locationName="Frisco" locationInfo={<FriscoInfo />} imageUrl="/frisco-texas-luxury-home.png" />
+    <LocationPageClient
+      cityName="Frisco"
+      heroImageSrc="/frisco-texas-luxury-home.png.jpg"
+      heroImageAlt="A modern luxury home in Frisco, Texas"
+      pageTitle="Frisco's Premier Remodeling & Construction"
+      metaDescription="TND Texas brings luxury remodeling and high-end construction services to Frisco, specializing in kitchens, bathrooms, and outdoor living."
+      services={SERVICES}
+      mainContent={
+        <>
+          <h2>Luxury and Quality for Frisco Homes</h2>
+          <p>
+            As one of the fastest-growing cities in the nation, Frisco demands excellence, and TND Texas delivers. We
+            provide premier general contracting services tailored to the high standards of Frisco homeowners. Our focus
+            is on creating luxurious, functional, and beautifully crafted spaces that enhance your lifestyle.
+          </p>
+          <p>
+            From state-of-the-art kitchen remodels and spa-like bathroom renovations to expansive outdoor living areas
+            featuring custom decks and pergolas, we bring a meticulous eye for detail to every project. For a
+            construction partner that understands the Frisco market, look no further than TND Texas.
+          </p>
+        </>
+      }
+    />
   )
 }
