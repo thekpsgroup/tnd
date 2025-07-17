@@ -22,8 +22,8 @@ export function HeroSection() {
             Building Your Vision. Exceeding Expectations.
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-200 md:text-xl">
-            TND Texas is North Texas's premier general contractor for luxury remodeling, custom construction, and
-            durable roofing.
+            TND Texas is North Texas's premier general contractor for luxury remodeling, custom construction,
+            no project too small.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Button asChild size="lg">
