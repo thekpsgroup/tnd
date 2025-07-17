@@ -1,90 +1,67 @@
 "use client"
 
-import type React from "react"
+import type * as React from "react"
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle } from "lucide-react"
-
-interface LocationPageClientProps {
-  cityName: string
-  heroImageSrc: string
-  heroImageAlt: string
-  pageTitle: string
-  services: {
-    title: string
-    description: string
-    href: string
-  }[]
-  mainContent: React.ReactNode
+/**
+ * Generic location-specific landing page section renderer.
+ * Every array prop is optional -- if it’s missing we gracefully render nothing
+ * instead of throwing during build-time static generation.
+ */
+export interface LocationPageClientProps {
+  heading?: string
+  subheading?: string
+  heroImageSrc?: string
+  /**
+   * Free-form React nodes for each page “section”.
+   * e.g. <ServicesSection/>, <RecentWorkSection/>, etc.
+   */
+  sections?: React.ReactNode[]
+  /**
+   * Raw HTML string (from CMS, MDX, etc.) you might want to drop in.
+   */
+  rawHtml?: string
 }
 
-export function LocationPageClient({
-  cityName,
+function LocationPageClient({
+  heading = "",
+  subheading = "",
   heroImageSrc,
-  heroImageAlt,
-  pageTitle,
-  services,
-  mainContent,
+  sections = [],
+  rawHtml,
 }: LocationPageClientProps) {
   return (
-    <>
-      <section className="relative h-[400px] w-full flex items-center justify-center text-center text-white">
-        <div className="absolute inset-0 overflow-hidden">
-          <Image src={heroImageSrc || "/placeholder.svg"} alt={heroImageAlt} fill className="object-cover" priority />
-        </div>
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 container px-4 md:px-6">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">{pageTitle}</h1>
-          <p className="mt-4 text-lg text-gray-200 md:text-xl max-w-3xl mx-auto">
-            Your trusted local partner for expert home remodeling and construction services in {cityName}, Texas.
-          </p>
-        </div>
-      </section>
+    <main className="flex flex-col gap-12">
+      {/* HERO  */}
+      {(heading || subheading || heroImageSrc) && (
+        <header className="relative flex flex-col items-center text-center">
+          {heroImageSrc && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={heroImageSrc || "/placeholder.svg"}
+              alt={heading || subheading || "Location hero image"}
+              className="mb-8 h-64 w-full object-cover"
+            />
+          )}
+          {heading && <h1 className="text-3xl font-bold text-copper-600">{heading}</h1>}
+          {subheading && <p className="mt-2 max-w-2xl text-lg text-muted-foreground">{subheading}</p>}
+        </header>
+      )}
 
-      <section className="py-12 md:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="prose lg:prose-xl max-w-full">{mainContent}</div>
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Our Services in {cityName}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {services.map((service) => (
-                    <div key={service.title} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                      <div>
-                        <h3 className="font-semibold">{service.title}</h3>
-                        <p className="text-sm text-muted-foreground">{service.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-              <Card className="bg-secondary">
-                <CardHeader>
-                  <CardTitle>Ready to Start Your Project?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Let's build your vision together. Contact us today for a free, no-obligation estimate for your{" "}
-                    {cityName} home.
-                  </p>
-                  <Button asChild size="lg" className="w-full">
-                    <Link href="/contact">Get Your Free Estimate</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+      {/* DROP-IN HTML (optional) */}
+      {rawHtml && <section className="prose mx-auto max-w-4xl" dangerouslySetInnerHTML={{ __html: rawHtml }} />}
+
+      {/* DYNAMIC SECTIONS */}
+      {sections.map((section, idx) => (
+        <section key={idx}>{section}</section>
+      ))}
+    </main>
   )
 }
 
+/**
+ * We export **both** styles so existing pages using either
+ * `import LocationPageClient` **or**
+ * `import { LocationPageClient }` continue to work.
+ */
+export { LocationPageClient }
 export default LocationPageClient
