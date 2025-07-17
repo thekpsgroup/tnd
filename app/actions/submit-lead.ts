@@ -11,7 +11,16 @@ const formSchema = z.object({
   serviceRequested: z.string().min(3, { message: "Please select a service." }),
 })
 
-export async function submitLead(prevState: any, formData: FormData) {
+type FormState = {
+  message: string
+  errors?: Record<string, string[]>
+}
+
+export async function submitLead(
+  prevState: FormState,
+  formData: FormData
+): Promise<FormState> {
+  // Validate user input
   const validatedFields = formSchema.safeParse({
     name: formData.get("name"),
     phoneNumber: formData.get("phoneNumber"),
@@ -28,36 +37,52 @@ export async function submitLead(prevState: any, formData: FormData) {
     }
   }
 
+  // Map to Router.so field names EXACTLY
   const { name, phoneNumber, email, streetAddress, zipCode, serviceRequested } = validatedFields.data
 
   const payload = {
-    Name: name,
+    "Name": name,
     "Phone Number": phoneNumber,
-    Email: email,
+    "Email": email,
     "Street Address": streetAddress,
     "Zip Code": zipCode,
-    "Service requested?": serviceRequested,
+    "Service requested?": serviceRequested, // <-- Must match Router.so exactly (case, punctuation, etc.)
   }
 
   try {
-    const response = await fetch("https://app.router.so/api/endpoints/ee69bkct", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer 909b23f43d76e012a97e7759040f49e75ac8767be421f1bc5021a18f37a5483d",
-      },
-      body: JSON.stringify(payload),
-    })
+    const response = await fetch(
+      "https://app.router.so/api/endpoints/ee69bkct",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer 909b23f43d76e012a97e7759040f49e75ac8767be421f1bc5021a18f37a5483d",
+        },
+        body: JSON.stringify(payload),
+      }
+    )
 
+    // Handle Router.so API errors, regardless of content type
     if (!response.ok) {
-      const errorData = await response.json()
-      console.error("API Error:", errorData)
-      return { message: "An error occurred. Please try again later." }
+      let errorDetails
+      try {
+        errorDetails = await response.json()
+      } catch {
+        errorDetails = await response.text()
+      }
+      console.error("Router.so API Error:", errorDetails)
+      return {
+        message: "An error occurred while submitting your request. Please try again later.",
+      }
     }
 
-    return { message: "Thank you for your submission! We will be in touch shortly." }
-  } catch (error) {
+    return {
+      message: "Thank you for your submission! We will be in touch shortly.",
+    }
+  } catch (error: any) {
     console.error("Fetch Error:", error)
-    return { message: "A network error occurred. Please try again later." }
+    return {
+      message: "A network error occurred. Please check your connection and try again.",
+    }
   }
 }

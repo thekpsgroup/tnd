@@ -15,7 +15,7 @@ export function SchemaMarkup() {
     telephone: "+1-903-603-4150",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "123 Main St",
+      streetAddress: "103 E Main St",
       addressLocality: "Royse City",
       addressRegion: "TX",
       postalCode: "75189",
