@@ -17,7 +17,6 @@ export const SERVICES = [
     description: "Beautiful, durable outdoor living spaces.",
   },
   { title: "Flooring", href: "/services/flooring", description: "Hardwood, tile, and luxury vinyl." },
-  { title: "Exterior & Siding", href: "/services/exterior-projects", description: "Enhance your home's curb appeal." },
   { title: "Roofing", href: "/services/roofing", description: "Durable and reliable roofing solutions." },
   { title: "Commercial Projects", href: "/services/commercial", description: "Office, retail, and gym renovations." },
 ]
