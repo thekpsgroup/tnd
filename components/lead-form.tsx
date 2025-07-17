@@ -5,7 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useActionState } from "react"
-import { submitLead, formSchema } from "@/app/contact/actions/submit-lead"
+import { submitLead } from "@/app/contact/actions/submit-lead"
+import { formSchema } from "@/lib/schemas/lead-form-schema"
 import { z } from "zod"
 
 type FormSchemaType = z.infer<typeof formSchema>
