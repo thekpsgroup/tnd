@@ -1,19 +1,13 @@
 "use client"
 
 import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useActionState } from "react"
 import { submitLead } from "@/app/contact/actions/submit-lead"
-import { formSchema } from "@/lib/schemas/lead-form-schema"
-import { z } from "zod"
-
-type FormSchemaType = z.infer<typeof formSchema>
 
 export function LeadForm() {
-  const form = useForm<FormSchemaType>({
-    resolver: zodResolver(formSchema),
+  const form = useForm({
     defaultValues: {
       "Name": "",
       "Phone Number": "",
@@ -34,7 +28,7 @@ export function LeadForm() {
           name="Name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Full Name</FormLabel>
+              <FormLabel>Name</FormLabel>
               <FormControl>
                 <Input placeholder="John Doe" {...field} />
               </FormControl>

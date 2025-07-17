@@ -1,54 +1,39 @@
 "use server"
 
-import { formSchema } from "@/lib/schemas/lead-form-schema"
-
 type FormState = {
   message: string
   errors?: Record<string, string[]>
 }
 
-const ROUTERSO_API_KEY = process.env.ROUTERSO_API_KEY!
-const ROUTERSO_ENDPOINT = process.env.ROUTERSO_ENDPOINT!
-const ZAPIER_WEBHOOK_URL = process.env.ZAPIER_WEBHOOK_URL!
+// Put your API key and endpoint directly if you want (or use env vars as shown before)
+const ROUTERSO_API_KEY = "909b23f43d76e012a97e7759040f49e75ac8767be421f1bc5021a18f37a5483d";
+const ROUTERSO_ENDPOINT = "https://app.router.so/api/endpoints/ee69bkct";
 
 export async function submitLead(
   prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
   try {
-    // Build payload: explicitly extract and fallback to empty string
-    const name = formData.get("Name")?.toString() || ""
-    const phoneNumber = formData.get("Phone Number")?.toString() || ""
-    const email = formData.get("Email")?.toString() || ""
-    const streetAddress = formData.get("Street Address")?.toString() || ""
-    const zipCode = formData.get("Zip Code")?.toString() || ""
-    const serviceRequested = formData.get("Service requested?")?.toString() || ""
-
-    // Explicitly build the payload with exact Router.so keys
+    // Build the payload with exact field names from Router.so
     const payload = {
-      "Name": name,
-      "Phone Number": phoneNumber,
-      "Email": email,
-      "Street Address": streetAddress,
-      "Zip Code": zipCode,
-      "Service requested?": serviceRequested
-    }
+      "Name": formData.get("Name") || "",
+      "Phone Number": formData.get("Phone Number") || "",
+      "Email": formData.get("Email") || "",
+      "Street Address": formData.get("Street Address") || "",
+      "Zip Code": formData.get("Zip Code") || "",
+      "Service requested?": formData.get("Service requested?") || ""
+    };
 
-    // Log payload for troubleshooting
-    console.log("ROUTERSO ENDPOINT:", ROUTERSO_ENDPOINT)
-    console.log("ROUTERSO API KEY:", ROUTERSO_API_KEY)
-    console.log("Payload about to POST:", JSON.stringify(payload))
-    console.log("Headers about to send:", {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${ROUTERSO_API_KEY}`
-    })
+    // Log payload for debugging
+    console.log("Payload about to POST:", JSON.stringify(payload));
 
-    // Validate user input
-    const validatedFields = formSchema.safeParse(payload)
-    if (!validatedFields.success) {
-      return {
-        errors: validatedFields.error.flatten().fieldErrors,
-        message: "Please correct the errors and try again.",
+    // Ensure all fields are present
+    for (const [key, value] of Object.entries(payload)) {
+      if (!value) {
+        return {
+          errors: { [key]: ["This field is required."] },
+          message: `The field "${key}" is required.`,
+        }
       }
     }
 
@@ -63,32 +48,35 @@ export async function submitLead(
         },
         body: JSON.stringify(payload),
       }
-    )
+    );
 
-        if (!response.ok) {
-          // Handle error response from Router.so
-          return {
-            message: "Failed to submit lead. Please try again later.",
-            errors: { server: ["Failed to submit lead."] }
-          }
-        }
-    
-        // Optionally, POST to Zapier webhook (if needed)
-        if (ZAPIER_WEBHOOK_URL) {
-          await fetch(ZAPIER_WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          })
-        }
-    
-        return {
-          message: "Lead submitted successfully!",
-        }
-      } catch (error) {
-        return {
-          message: "An unexpected error occurred. Please try again.",
-          errors: { server: [error instanceof Error ? error.message : "Unknown error"] }
+    if (!response.ok) {
+      let errorDetails: unknown = undefined;
+      try {
+        errorDetails = await response.json();
+      } catch {
+        try {
+          errorDetails = await response.text();
+        } catch {
+          errorDetails = "Unknown error";
         }
       }
+      console.error("Router.so API Error:", errorDetails);
+      return {
+        errors: undefined,
+        message: "An error occurred while submitting your request. Please try again later.",
+      };
     }
+
+    return {
+      errors: undefined,
+      message: "Thank you for your submission! We will be in touch shortly.",
+    }
+  } catch (error: unknown) {
+    console.error("Fetch Error:", error);
+    return {
+      errors: undefined,
+      message: "A network error occurred. Please check your connection and try again.",
+    }
+  }
+}
