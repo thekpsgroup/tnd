@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import { SERVICES, LOCATIONS } from "@/lib/constants"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
@@ -45,7 +46,7 @@ export default function Header() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Services</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] max-h-[75vh] overflow-y-auto">
                     {SERVICES.map((component) => (
                       <ListItem key={component.title} title={component.title} href={component.href}>
                         {component.description}
@@ -57,7 +58,7 @@ export default function Header() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Service Areas</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[200px] gap-3 p-4 md:w-[250px]">
+                  <ul className="grid w-[200px] gap-3 p-4 md:w-[250px] max-h-[75vh] overflow-y-auto">
                     {LOCATIONS.map((location) => (
                       <ListItem key={location.title} title={location.title} href={location.href} />
                     ))}
@@ -96,46 +97,63 @@ export default function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left">
-              <div className="flex flex-col p-6">
-                <Link href="/" className="mb-6" onClick={() => setIsSheetOpen(false)}>
-                  <Image src="/logo.png" alt="TND Texas Logo" width={140} height={40} />
-                </Link>
-                <nav className="flex flex-col space-y-4">
-                  <Link href="/about" className="font-medium" onClick={() => setIsSheetOpen(false)}>
+            <SheetContent side="left" className="flex flex-col p-6">
+              <Link href="/" className="mb-4 flex-shrink-0" onClick={() => setIsSheetOpen(false)}>
+                <Image src="/logo.png" alt="TND Texas Logo" width={140} height={40} />
+              </Link>
+              <ScrollArea className="flex-grow">
+                <nav className="flex flex-col space-y-2 pr-4">
+                  <Link href="/about" className="font-medium text-lg" onClick={() => setIsSheetOpen(false)}>
                     About
                   </Link>
-                  <Link href="/portfolio" className="font-medium" onClick={() => setIsSheetOpen(false)}>
+                  <Link href="/portfolio" className="font-medium text-lg" onClick={() => setIsSheetOpen(false)}>
                     Portfolio
                   </Link>
-                  <p className="font-semibold">Services</p>
-                  {SERVICES.map((s) => (
-                    <Link key={s.href} href={s.href} className="pl-4" onClick={() => setIsSheetOpen(false)}>
-                      {s.title}
-                    </Link>
-                  ))}
-                  <p className="font-semibold">Service Areas</p>
-                  {LOCATIONS.map((l) => (
-                    <Link key={l.href} href={l.href} className="pl-4" onClick={() => setIsSheetOpen(false)}>
-                      {l.title}
-                    </Link>
-                  ))}
-                  <Link href="/process" className="font-medium" onClick={() => setIsSheetOpen(false)}>
+
+                  <p className="font-semibold text-lg pt-2">Services</p>
+                  <div className="flex flex-col space-y-2 pl-4">
+                    {SERVICES.map((s) => (
+                      <Link
+                        key={s.href}
+                        href={s.href}
+                        className="text-muted-foreground"
+                        onClick={() => setIsSheetOpen(false)}
+                      >
+                        {s.title}
+                      </Link>
+                    ))}
+                  </div>
+
+                  <p className="font-semibold text-lg pt-2">Service Areas</p>
+                  <div className="flex flex-col space-y-2 pl-4">
+                    {LOCATIONS.map((l) => (
+                      <Link
+                        key={l.href}
+                        href={l.href}
+                        className="text-muted-foreground"
+                        onClick={() => setIsSheetOpen(false)}
+                      >
+                        {l.title}
+                      </Link>
+                    ))}
+                  </div>
+
+                  <Link href="/process" className="font-medium text-lg pt-2" onClick={() => setIsSheetOpen(false)}>
                     Our Process
                   </Link>
-                  <Link href="/guarantee" className="font-medium" onClick={() => setIsSheetOpen(false)}>
+                  <Link href="/guarantee" className="font-medium text-lg" onClick={() => setIsSheetOpen(false)}>
                     Our Guarantee
                   </Link>
-                  <Link href="/financing" className="font-medium" onClick={() => setIsSheetOpen(false)}>
+                  <Link href="/financing" className="font-medium text-lg" onClick={() => setIsSheetOpen(false)}>
                     Financing
                   </Link>
-                  <Button asChild className="mt-4">
-                    <Link href="/contact" onClick={() => setIsSheetOpen(false)}>
-                      Contact Us
-                    </Link>
-                  </Button>
                 </nav>
-              </div>
+              </ScrollArea>
+              <Button asChild className="mt-4 flex-shrink-0">
+                <Link href="/contact" onClick={() => setIsSheetOpen(false)}>
+                  Contact Us
+                </Link>
+              </Button>
             </SheetContent>
           </Sheet>
         </div>
