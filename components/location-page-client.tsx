@@ -13,7 +13,6 @@ interface LocationPageClientProps {
   heroImageSrc: string
   heroImageAlt: string
   pageTitle: string
-  metaDescription: string
   services: {
     title: string
     description: string
@@ -87,3 +86,5 @@ export function LocationPageClient({
     </>
   )
 }
+
+export default LocationPageClient
