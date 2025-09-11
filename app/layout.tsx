@@ -113,7 +113,7 @@ export default function RootLayout({
             <Toaster />
 
             {/* Trust Bar */}
-            <div className="bg-gradient-to-r from-slate-50 via-blue-50/30 to-purple-50/30 border-b border-slate-200/50">
+            <div className="bg-gradient-to-r from-[#faf7f2] via-white to-[#faf7f2] border-b border-slate-200/50">
               <div className="container mx-auto px-4 py-3">
                 <div className="flex items-center justify-center gap-8 text-sm text-slate-600">
                   <div className="flex items-center gap-2">

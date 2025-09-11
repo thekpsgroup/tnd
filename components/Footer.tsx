@@ -4,7 +4,7 @@ import { SERVICES, LOCATIONS } from "@/lib/constants"
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-[#111111] via-[#1a1a1a] to-[#111111] text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-8">
               <Link href="/" className="inline-block group">
-                <div className="relative overflow-hidden rounded-xl p-3 bg-white/15 backdrop-blur-md border border-white/30 group-hover:bg-white/25 group-hover:scale-105 transition-all duration-500 shadow-xl">
+                <div className="relative overflow-hidden rounded-xl p-3 bg-white/10 backdrop-blur-md border border-white/20 group-hover:bg-white/20 group-hover:scale-105 transition-all duration-500 shadow-xl">
                   <Image
                     src="/assets/logos/logo.png"
                     alt="TND Texas Logo"
@@ -49,7 +49,7 @@ export default function Footer() {
             </div>
 
             {/* Quick contact */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10">
               <h4 className="text-white font-semibold mb-3">Get Started Today</h4>
               <div className="space-y-2">
                 <a href="tel:903-603-4150" className="flex items-center gap-3 text-slate-200 hover:text-white transition-colors group">

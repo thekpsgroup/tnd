@@ -27,7 +27,7 @@ export default function Header() {
       <div className="container flex h-24 items-center justify-between">
         <div className="flex items-center gap-10">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative overflow-hidden rounded-xl p-2 bg-gradient-to-br from-blue-50 to-purple-50 shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-500 border border-blue-100/50">
+            <div className="relative overflow-hidden rounded-xl p-2 bg-gradient-to-br from-[#f5efe6] to-white shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-500 border border-[#e9dfcf]">
               <Image
                 src="/assets/logos/logo.png"
                 alt="TND Texas Logo"
@@ -92,7 +92,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button asChild className="hidden lg:inline-flex bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6">
+          <Button asChild className="hidden lg:inline-flex bg-gradient-to-r from-[#b87333] to-[#8c5a2b] hover:from-[#a9692f] hover:to-[#7a4f26] text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6">
             <Link href="/contact" className="flex items-center gap-2">
               <span>Get Free Quote</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

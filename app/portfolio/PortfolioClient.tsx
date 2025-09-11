@@ -252,17 +252,17 @@ export default function PortfolioClient() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30">
+      <div className="min-h-screen bg-gradient-to-br from-[#faf7f2] via-white to-[#faf7f2]">
         {/* Hero Section */}
         <div className="container mx-auto px-4 py-16 sm:py-20">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full px-4 py-2 mb-6">
-              <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#efe7db] to-white rounded-full px-4 py-2 mb-6">
+              <svg className="w-5 h-5 text-[#8c5a2b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
               </svg>
               <span className="text-sm font-medium text-slate-700">Project Showcase</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-slate-900 via-[#4a3220] to-[#2a1c12] bg-clip-text text-transparent">
               Our Portfolio
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">

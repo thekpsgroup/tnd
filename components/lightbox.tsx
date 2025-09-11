@@ -64,7 +64,10 @@ export function LightboxWrapper({ slides, index, close }: LightboxWrapperProps) 
       styles={{
         container: { backgroundColor: "rgba(0, 0, 0, 0.95)" },
         thumbnailsContainer: { backgroundColor: "rgba(0, 0, 0, 0.8)" },
-        thumbnail: { borderRadius: 8 }
+        thumbnail: { borderRadius: 8 },
+        button: { color: "#b87333" },
+        navigationPrev: { color: "#b87333" },
+        navigationNext: { color: "#b87333" },
       }}
     />
   )
