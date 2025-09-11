@@ -15,7 +15,7 @@ const services = [
     name: "Custom Pergolas",
     description: "Add style and shade to your backyard.",
     href: "/services/pergolas",
-    image: "/assets/exterior/pergolas/wood-deck-pergola.jpg",
+    image: "/assets/exterior/pergolas/pergola-custom-wooden-design.jpg",
   },
   {
     name: "Stamped Concrete & Patios",
