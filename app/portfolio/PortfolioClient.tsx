@@ -184,6 +184,11 @@ const exteriorImages = [
   }
 ]
 
+// Deduplicate images by src to ensure no duplicates appear in the portfolio
+function uniqueBySrc<T extends { src: string }>(items: T[]): T[] {
+  return Array.from(new Map(items.map((i) => [i.src, i])).values())
+}
+
 function GalleryCard({ image, onClick, index }: { image: any, onClick: () => void, index: number }) {
   return (
     <Card className="group cursor-pointer overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white/80 backdrop-blur-sm">
@@ -239,9 +244,10 @@ export default function PortfolioClient() {
   const [index, setIndex] = useState(-1)
   const [currentImages, setCurrentImages] = useState<'interior' | 'exterior'>('interior')
 
-  const slides = currentImages === 'interior'
-    ? interiorImages.map(({ src, alt }) => ({ src, alt }))
-    : exteriorImages.map(({ src, alt }) => ({ src, alt }))
+  const slides = (currentImages === 'interior'
+    ? uniqueBySrc(interiorImages)
+    : uniqueBySrc(exteriorImages)
+  ).map(({ src, alt }) => ({ src, alt }))
 
   const handleImageClick = (imageIndex: number) => {
     setIndex(imageIndex)
