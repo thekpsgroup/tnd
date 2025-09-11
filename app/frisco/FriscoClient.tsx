@@ -7,7 +7,7 @@ export default function FriscoClient() {
   return (
     <LocationPageClient
       cityName="Frisco"
-      heroImageSrc="/frisco-texas-luxury-home.png.jpg"
+      heroImageSrc="/assets/exterior/locations/frisco-texas-luxury-home.png.jpg"
       heroImageAlt="A modern luxury home in Frisco, Texas"
       pageTitle="Frisco's Premier Remodeling & Construction"
       metaDescription="TND Texas brings luxury remodeling and high-end construction services to Frisco, specializing in kitchens, bathrooms, and outdoor living."

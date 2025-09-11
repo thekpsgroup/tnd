@@ -27,7 +27,7 @@ export default function AboutClient() {
           </div>
           <div className="order-first md:order-last">
             <Image
-              src="/modern-house-exterior.png"
+              src="/assets/exterior/homes/modern-house-exterior.png"
               alt="Modern house exterior built by TND Texas"
               className="rounded-lg shadow-xl aspect-video w-full object-cover"
               width={600}
@@ -44,7 +44,7 @@ export default function AboutClient() {
           <div className="flex flex-col items-center text-center">
             <div className="w-32 h-32 mb-4 rounded-full overflow-hidden bg-muted flex items-center justify-center">
               <Image
-                src="/brandon-gibson.jpg"
+                src="/assets/team/brandon-gibson.jpg"
                 alt="Brandon Gibson"
                 width={128}
                 height={128}
@@ -62,7 +62,7 @@ export default function AboutClient() {
           <div className="flex flex-col items-center text-center">
             <div className="w-32 h-32 mb-4 rounded-full overflow-hidden bg-muted flex items-center justify-center">
               <Image
-                src="/holly-gibson.jpg"
+                src="/assets/team/holly-gibson.jpg"
                 alt="Holly Gibson"
                 width={128}
                 height={128}

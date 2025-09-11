@@ -10,12 +10,12 @@ const RoofingDescription = () => (
 )
 
 const gallery = [
-  "/roofing-projects/asphalt-shingle-roof-replacement.png",
-  "/roofing-projects/modern-home-metal-roof.png",
-  "/roofing-projects/roof-repair-in-progress.png",
-  "/roofing-projects/suburban-house-new-roof.png",
-  "/roofing-projects/drone-shot-large-roof.png",
-  "/roofing-projects/roof-detail-chimney-flashing.png",
+  "/assets/services/roofing/asphalt-shingle-roof-replacement.png",
+  "/assets/services/roofing/modern-home-metal-roof.png.jpg",
+  "/assets/services/roofing/roof-repair-in-progress.png",
+  "/assets/services/roofing/suburban-house-new-roof.png",
+  "/assets/services/roofing/drone-shot-large-roof.png",
+  "/assets/services/roofing/roof-detail-chimney-flashing.jpg",
 ]
 
 export default function RoofingClient() {

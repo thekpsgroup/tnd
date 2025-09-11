@@ -23,26 +23,34 @@ export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 isolate">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200/30 bg-white/95 backdrop-blur-xl supports-[backdrop-filter]:bg-white/95 shadow-lg shadow-slate-900/5 isolate">
       <div className="container flex h-24 items-center justify-between">
-        <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src="/logo.png" alt="TND Texas Logo" width={140} height={40} className="object-contain" />
+        <div className="flex items-center gap-10">
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="relative overflow-hidden rounded-xl p-2 bg-gradient-to-br from-blue-50 to-purple-50 shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-500 border border-blue-100/50">
+              <Image
+                src="/assets/logos/logo.png"
+                alt="TND Texas Logo"
+                width={140}
+                height={40}
+                className="object-contain transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
           </Link>
           <NavigationMenu className="hidden lg:flex flex-initial">
             <NavigationMenuList>
               <NavigationMenuItem>
                 <Link href="/about" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>About</NavigationMenuLink>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()} title="About TND Texas Construction Company">About</NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="/portfolio" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Portfolio</NavigationMenuLink>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()} title="Construction Portfolio Dallas Fort Worth - Kitchen & Bathroom Remodels">Portfolio</NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                <NavigationMenuTrigger title="Construction Services Dallas Fort Worth">Services</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] max-h-[75vh] overflow-y-auto">
                     {SERVICES.map((component) => (
@@ -54,7 +62,7 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Service Areas</NavigationMenuTrigger>
+                <NavigationMenuTrigger title="Service Areas Dallas Fort Worth Metroplex">Service Areas</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[200px] gap-3 p-4 md:w-[250px] max-h-[75vh] overflow-y-auto">
                     {LOCATIONS.map((location) => (
@@ -65,17 +73,17 @@ export default function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="/process" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Our Process</NavigationMenuLink>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()} title="Construction Process Dallas Fort Worth">Our Process</NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="/guarantee" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Our Guarantee</NavigationMenuLink>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()} title="Construction Guarantee Dallas Fort Worth">Our Guarantee</NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="/financing" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Financing</NavigationMenuLink>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()} title="Construction Financing Options DFW">Financing</NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -83,9 +91,14 @@ export default function Header() {
           </NavigationMenu>
         </div>
 
-        <div className="flex items-center gap-2">
-          <Button asChild className="hidden lg:inline-flex">
-            <Link href="/contact">Contact Us</Link>
+        <div className="flex items-center gap-3">
+          <Button asChild className="hidden lg:inline-flex bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6">
+            <Link href="/contact" className="flex items-center gap-2">
+              <span>Get Free Quote</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
           </Button>
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
@@ -94,9 +107,17 @@ export default function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="flex flex-col p-6">
-              <Link href="/" className="mb-4 flex-shrink-0" onClick={() => setIsSheetOpen(false)}>
-                <Image src="/logo.png" alt="TND Texas Logo" width={140} height={40} />
+            <SheetContent side="left" className="flex flex-col p-6 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 backdrop-blur-xl border-r border-slate-200/50">
+              <Link href="/" className="mb-8 flex-shrink-0" onClick={() => setIsSheetOpen(false)}>
+                <div className="relative overflow-hidden rounded-xl p-3 bg-gradient-to-br from-blue-50 to-purple-50 shadow-lg border border-blue-100/50">
+                  <Image
+                    src="/assets/logos/logo.png"
+                    alt="TND Texas Logo"
+                    width={140}
+                    height={36}
+                    className="object-contain"
+                  />
+                </div>
               </Link>
               <ScrollArea className="flex-grow">
                 <nav className="flex flex-col space-y-2 pr-4">
