@@ -8,7 +8,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center text-center text-white overflow-hidden">
       {/* Background with gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0e0e0e] via-[#141414] to-[#0e0e0e]" />
+      <div className="absolute inset-0 bg-[#0f0f0f]" />
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
         style={{
@@ -24,7 +24,7 @@ export function HeroSection() {
       </div>
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
+      <div className="absolute inset-0 bg-black/50" />
 
       <div className="container px-4 md:px-6 z-10 relative">
         <div className="max-w-5xl mx-auto">
@@ -43,11 +43,11 @@ export function HeroSection() {
 
           {/* Main heading with gradient text */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
-            <span className="bg-gradient-to-r from-white via-[#f1f1f1] to-white bg-clip-text text-transparent">
+            <span className="text-white">
               #1 Construction Company
             </span>
             <br />
-            <span className="bg-gradient-to-r from-[#b87333] via-[#a0692e] to-[#8c5a2b] bg-clip-text text-transparent">Dallas Fort Worth</span>
+            <span className="text-[#b87333]">Dallas Fort Worth</span>
           </h1>
 
           {/* Subtitle */}
@@ -59,8 +59,8 @@ export function HeroSection() {
           {/* CTA Buttons */}
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#b87333] to-[#8c5a2b] rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-              <Button asChild size="lg" className="relative bg-gradient-to-r from-[#b87333] to-[#8c5a2b] hover:from-[#a9692f] hover:to-[#7a4f26] text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group border-0">
+              <div className="absolute -inset-1 bg-[#b87333] rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+              <Button asChild size="lg" className="relative bg-[#b87333] hover:bg-[#a9692f] text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group border-0">
                 <Link href="/contact" className="flex items-center gap-2">
                   Get Your Free Estimate
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -137,7 +137,7 @@ export function LeadForm() {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 text-lg font-semibold"
+        className="w-full bg-[#b87333] hover:bg-[#a9692f] text-white py-3 text-lg font-semibold"
       >
         {isSubmitting ? (
           <>

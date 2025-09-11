@@ -113,7 +113,7 @@ export default function RootLayout({
             <Toaster />
 
             {/* Trust Bar */}
-            <div className="bg-gradient-to-r from-[#faf7f2] via-white to-[#faf7f2] border-b border-slate-200/50">
+            <div className="bg-white/70 border-b border-slate-200/50">
               <div className="container mx-auto px-4 py-3">
                 <div className="flex items-center justify-center gap-8 text-sm text-slate-600">
                   <div className="flex items-center gap-2">
@@ -141,10 +141,7 @@ export default function RootLayout({
             {/* Floating CTA Buttons */}
             <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
               {/* Phone Call Button */}
-              <Link
-                href="tel:903-603-4150"
-                className="group relative bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
-              >
+              <Link href="tel:903-603-4150" className="group relative bg-[#16a34a] hover:bg-[#15803d] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110">
                 <Phone className="w-6 h-6" />
                 <div className="absolute -top-12 -left-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <div className="bg-slate-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap">
@@ -155,10 +152,7 @@ export default function RootLayout({
               </Link>
 
               {/* Contact Form Button */}
-              <Link
-                href="/contact"
-                className="group relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
-              >
+              <Link href="/contact" className="group relative bg-[#b87333] hover:bg-[#a9692f] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110">
                 <MessageCircle className="w-6 h-6" />
                 <div className="absolute -top-12 -right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <div className="bg-slate-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap">

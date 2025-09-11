@@ -79,7 +79,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <div className="bg-card p-8 rounded-lg border shadow-sm">
+          <div className="bg-card/90 p-8 rounded-lg border shadow-sm">
             <LeadForm />
           </div>
           <div className="space-y-8">
@@ -95,8 +95,8 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
                   </a>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 bg-neutral-100 rounded-full flex items-center justify-center">
+                    <svg className="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>

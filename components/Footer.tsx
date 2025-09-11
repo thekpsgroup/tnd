@@ -4,7 +4,7 @@ import { SERVICES, LOCATIONS } from "@/lib/constants"
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-[#111111] via-[#1a1a1a] to-[#111111] text-white relative overflow-hidden">
+    <footer className="bg-[#111111] text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -185,17 +185,14 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-slate-700/50 pt-12 mt-12">
           {/* Call to Action Bar */}
-          <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/10">
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div>
                 <h4 className="text-white font-bold text-lg mb-2">Ready to Start Your Project?</h4>
                 <p className="text-slate-200 text-sm">Get a free estimate and turn your vision into reality</p>
         </div>
               <div className="flex gap-3">
-                <Link
-                  href="/contact"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                >
+                <Link href="/contact" className="bg-[#b87333] hover:bg-[#a9692f] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                   Get Free Quote
                 </Link>
                 <Link

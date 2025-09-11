@@ -23,16 +23,16 @@ export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/30 bg-white/95 backdrop-blur-xl supports-[backdrop-filter]:bg-white/95 shadow-lg shadow-slate-900/5 isolate">
-      <div className="container flex h-24 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200/30 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 shadow-lg shadow-slate-900/5 isolate">
+      <div className="container flex h-[7.5rem] items-center justify-between">
         <div className="flex items-center gap-10">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative overflow-hidden rounded-xl p-2 bg-gradient-to-br from-[#f5efe6] to-white shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-500 border border-[#e9dfcf]">
+            <div className="relative overflow-hidden rounded-xl p-2 bg-[#f5efe6] shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-500 border border-[#e9dfcf]">
               <Image
                 src="/assets/logos/logo.png"
                 alt="TND Texas Logo"
-                width={140}
-                height={40}
+                width={168}
+                height={48}
                 className="object-contain transition-transform duration-500 group-hover:scale-110"
               />
             </div>
@@ -92,7 +92,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button asChild className="hidden lg:inline-flex bg-gradient-to-r from-[#b87333] to-[#8c5a2b] hover:from-[#a9692f] hover:to-[#7a4f26] text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6">
+          <Button asChild className="hidden lg:inline-flex bg-[#b87333] hover:bg-[#a9692f] text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6">
             <Link href="/contact" className="flex items-center gap-2">
               <span>Get Free Quote</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,14 +107,14 @@ export default function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="flex flex-col p-6 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 backdrop-blur-xl border-r border-slate-200/50">
+            <SheetContent side="left" className="flex flex-col p-6 bg-white/85 backdrop-blur-xl border-r border-slate-200/50">
               <Link href="/" className="mb-8 flex-shrink-0" onClick={() => setIsSheetOpen(false)}>
-                <div className="relative overflow-hidden rounded-xl p-3 bg-gradient-to-br from-blue-50 to-purple-50 shadow-lg border border-blue-100/50">
+                <div className="relative overflow-hidden rounded-xl p-3 bg-[#f5efe6] shadow-lg border border-[#e9dfcf]">
                   <Image
                     src="/assets/logos/logo.png"
                     alt="TND Texas Logo"
-                    width={140}
-                    height={36}
+                    width={160}
+                    height={44}
                     className="object-contain"
                   />
                 </div>
