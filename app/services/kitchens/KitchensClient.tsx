@@ -10,9 +10,9 @@ const KitchensDescription = () => (
 )
 
 const gallery = [
-  "/portfolio/modern-kitchen-remodel-grey-cabinets.jpg",
-  "/bright-modern-kitchen.png",
-  "/luxury-marble-kitchen.png",
+  "/assets/interior/kitchens/modern-kitchen-remodel-grey-cabinets.jpg",
+  "/assets/interior/kitchens/bright-modern-kitchen.png",
+  "/assets/interior/kitchens/luxury-marble-kitchen.png",
 ]
 
 export default function KitchensClient() {

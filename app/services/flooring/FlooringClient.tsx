@@ -11,12 +11,12 @@ const FlooringDescription = () => (
 )
 
 const gallery = [
-  "/portfolio/wood-look-tile-flooring-living-area.jpg",
-  "/portfolio/wood-look-tile-entryway.jpg",
-  "/portfolio/wood-look-tile-hallway.jpg",
-  "/portfolio/dining-room-wood-look-tile.jpg",
-  "/portfolio/hallway-flooring-transition.jpg",
-  "/portfolio/hallway-wood-look-flooring.jpg",
+  "/assets/interior/flooring/wood-look-tile-flooring-living-area.jpg",
+  "/assets/interior/flooring/wood-look-tile-entryway.jpg",
+  "/assets/interior/flooring/wood-look-tile-hallway.jpg",
+  "/assets/interior/flooring/dining-room-wood-look-tile.jpg",
+  "/assets/interior/flooring/hallway-flooring-transition.jpg",
+  "/assets/interior/flooring/hallway-wood-look-flooring.jpg",
 ]
 
 export default function FlooringClient() {

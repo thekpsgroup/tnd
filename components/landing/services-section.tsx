@@ -9,19 +9,19 @@ const services = [
     name: "Decks & Screened Porches",
     description: "Beautiful, functional outdoor living spaces.",
     href: "/services/decks",
-    image: "/portfolio/decks/modern-porch-stone-fireplace.jpg",
+    image: "/assets/exterior/decks/modern-porch-stone-fireplace.jpg",
   },
   {
     name: "Custom Pergolas",
     description: "Add style and shade to your backyard.",
     href: "/services/pergolas",
-    image: "/portfolio/pergolas/wood-deck-pergola.jpg",
+    image: "/assets/exterior/pergolas/wood-deck-pergola.jpg",
   },
   {
     name: "Stamped Concrete & Patios",
     description: "Durable and elegant patio solutions.",
     href: "/services/patios",
-    image: "/portfolio/patios/slate-stamped-patio-with-seating-wall.jpg",
+    image: "/assets/exterior/patios/slate-stamped-patio-with-seating-wall.jpg",
   },
 ]
 

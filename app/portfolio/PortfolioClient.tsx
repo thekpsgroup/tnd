@@ -162,26 +162,13 @@ const exteriorImages = [
     category: "Homes"
   },
   {
-    src: "/assets/exterior/homes/exterior-house-traditional-brick.jpg",
-    alt: "Traditional brick house with classic architectural features",
-    title: "Traditional Brick Home",
-    description: "Timeless traditional brick home featuring classic architectural elements and enduring curb appeal.",
-    category: "Homes"
-  },
-  {
     src: "/assets/exterior/locations/frisco-texas-luxury-home.png.jpg",
     alt: "Luxury home in Frisco, Texas showcasing premium construction",
     title: "Frisco Luxury Home",
     description: "Premium luxury home in Frisco, Texas, demonstrating our commitment to quality construction and design excellence.",
     category: "Locations"
   },
-  {
-    src: "/assets/exterior/locations/mckinney-texas-historic-downtown.png.jpg",
-    alt: "Historic downtown McKinney, Texas architecture",
-    title: "Historic McKinney Downtown",
-    description: "Preservation of historic architecture in downtown McKinney, Texas, blending tradition with modern craftsmanship.",
-    category: "Locations"
-  }
+  
 ]
 
 // Deduplicate images by src to ensure no duplicates appear in the portfolio

@@ -141,7 +141,7 @@ export default function RootLayout({
             {/* Floating CTA Buttons */}
             <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
               {/* Phone Call Button */}
-              <Link href="tel:903-603-4150" className="group relative bg-[#16a34a] hover:bg-[#15803d] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110">
+              <Link href="tel:903-603-4515" className="group relative bg-[#16a34a] hover:bg-[#15803d] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110">
                 <Phone className="w-6 h-6" />
                 <div className="absolute -top-12 -left-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <div className="bg-slate-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap">

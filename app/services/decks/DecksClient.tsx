@@ -11,15 +11,15 @@ const DecksDescription = () => (
 )
 
 const gallery = [
-  "/portfolio/decks/rustic-deck-wood-ceiling.jpg",
-  "/portfolio/decks/modern-porch-stone-fireplace.jpg",
-  "/portfolio/decks/screened-porch-blue-ceiling.jpg",
-  "/portfolio/decks/covered-deck-fireplace.jpg",
-  "/portfolio/decks/large-screened-porch-dining.jpg",
-  "/portfolio/decks/screened-porch-fireplace.jpg",
-  "/portfolio/decks/covered-porch-lounge.jpg",
-  "/portfolio/decks/modern-covered-deck.jpg",
-  "/portfolio/decks/porch-exterior-storage.jpg",
+  "/assets/exterior/decks/rustic-deck-wood-ceiling.jpg",
+  "/assets/exterior/decks/modern-porch-stone-fireplace.jpg",
+  "/assets/exterior/decks/screened-porch-blue-ceiling.jpg",
+  "/assets/exterior/decks/covered-deck-fireplace.jpg",
+  "/assets/exterior/decks/large-screened-porch-dining.jpg",
+  "/assets/exterior/decks/screened-porch-fireplace.jpg",
+  "/assets/exterior/decks/covered-porch-lounge.jpg",
+  "/assets/exterior/decks/modern-covered-deck.jpg",
+  "/assets/exterior/decks/porch-exterior-storage.jpg",
 ]
 
 export default function DecksClient() {

@@ -90,8 +90,8 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-4">
                   <Phone className="h-6 w-6 text-primary" />
-                  <a href="tel:903-603-4150" className="text-muted-foreground hover:text-primary">
-                    (903) 603-4150
+                  <a href="tel:903-603-4515" className="text-muted-foreground hover:text-primary">
+                    (903) 603-4515
                   </a>
                 </div>
                 <div className="flex items-center gap-4">

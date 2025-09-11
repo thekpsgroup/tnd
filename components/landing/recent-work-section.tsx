@@ -6,15 +6,15 @@ import Link from "next/link"
 import Image from "next/image"
 
 const recentWorkImages = [
-  { src: "/portfolio/pergolas/wood-deck-pergola.jpg", alt: "Deck with a large wooden pergola" },
-  { src: "/portfolio/decks/modern-porch-stone-fireplace.jpg", alt: "Modern porch with stone fireplace" },
-  { src: "/portfolio/luxury-bathroom-shower-tub.jpg", alt: "Luxury bathroom with freestanding tub" },
+  { src: "/assets/exterior/pergolas/wood-deck-pergola.jpg", alt: "Deck with a large wooden pergola" },
+  { src: "/assets/exterior/decks/modern-porch-stone-fireplace.jpg", alt: "Modern porch with stone fireplace" },
+  { src: "/assets/interior/bathrooms/luxury-bathroom-shower-tub.jpg", alt: "Luxury bathroom with freestanding tub" },
   {
-    src: "/portfolio/patios/slate-stamped-patio-with-seating-wall.jpg",
+    src: "/assets/exterior/patios/slate-stamped-patio-with-seating-wall.jpg",
     alt: "Stamped concrete patio with seating wall",
   },
-  { src: "/portfolio/modern-kitchen-remodel-grey-cabinets.jpg", alt: "Modern kitchen remodel" },
-  { src: "/portfolio/decks/screened-porch-blue-ceiling.jpg", alt: "Screened porch with blue ceiling" },
+  { src: "/assets/interior/kitchens/modern-kitchen-remodel-grey-cabinets.jpg", alt: "Modern kitchen remodel" },
+  { src: "/assets/exterior/decks/screened-porch-blue-ceiling.jpg", alt: "Screened porch with blue ceiling" },
 ]
 
 export function RecentWorkSection() {

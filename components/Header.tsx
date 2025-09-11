@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/30 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 shadow-lg shadow-slate-900/5 isolate">
-      <div className="container flex h-[9rem] items-center justify-between">
+      <div className="container flex h-[11rem] items-center justify-between">
         <div className="flex items-center gap-10">
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative overflow-hidden rounded-xl p-2 bg-[#f5efe6] shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-500 border border-[#e9dfcf]">

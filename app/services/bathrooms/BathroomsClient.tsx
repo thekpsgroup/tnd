@@ -11,15 +11,15 @@ const BathroomsDescription = () => (
 )
 
 const gallery = [
-  "/portfolio/luxury-bathroom-shower-tub.jpg",
-  "/portfolio/bathroom-remodel-dual-shower.jpg",
-  "/portfolio/freestanding-tub-walk-in-shower.jpg",
-  "/portfolio/walk-in-shower-pebble-tile.jpg",
-  "/portfolio/bathroom-vanity-modern-lighting.jpg",
-  "/portfolio/shower-detail-linear-drain.jpg",
-  "/portfolio/bathroom-vanity-makeup-station.jpg",
-  "/portfolio/bathroom-remodel-vanity.jpg",
-  "/portfolio/bathroom-remodel-in-progress.jpg",
+  "/assets/interior/bathrooms/luxury-bathroom-shower-tub.jpg",
+  "/assets/interior/bathrooms/bathroom-remodel-dual-shower.jpg",
+  "/assets/interior/bathrooms/freestanding-tub-walk-in-shower.jpg",
+  "/assets/interior/bathrooms/walk-in-shower-pebble-tile.jpg",
+  "/assets/interior/bathrooms/bathroom-vanity-modern-lighting.jpg",
+  "/assets/interior/bathrooms/shower-detail-linear-drain.jpg",
+  "/assets/interior/bathrooms/bathroom-vanity-makeup-station.jpg",
+  "/assets/interior/bathrooms/bathroom-remodel-vanity.jpg",
+  "/assets/interior/bathrooms/bathroom-remodel-in-progress.jpg",
 ]
 
 export default function BathroomsClient() {

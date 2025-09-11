@@ -11,15 +11,15 @@ const PatiosDescription = () => (
 )
 
 const gallery = [
-  "/portfolio/patios/slate-stamped-patio-with-seating-wall.jpg",
-  "/portfolio/patios/deck-patio-gazebo-aerial.jpg",
-  "/portfolio/patios/flagstone-patio-from-deck.jpg",
-  "/portfolio/patios/stamped-concrete-patio-overhead.jpg",
-  "/portfolio/patios/slate-patio-seating-wall-lake-view.jpg",
-  "/portfolio/patios/deck-patio-night-lighting-aerial.jpg",
-  "/portfolio/patios/ashlar-slate-patio-dark-border.jpg",
-  "/portfolio/patios/flagstone-patio-fire-pit.jpg",
-  "/portfolio/patios/slate-skin-patio-stone-bench.jpg",
+  "/assets/exterior/patios/slate-stamped-patio-with-seating-wall.jpg",
+  "/assets/exterior/patios/deck-patio-gazebo-aerial.jpg",
+  "/assets/exterior/patios/flagstone-patio-from-deck.jpg",
+  "/assets/exterior/patios/stamped-concrete-patio-overhead.jpg",
+  "/assets/exterior/patios/slate-patio-seating-wall-lake-view.jpg",
+  "/assets/exterior/patios/deck-patio-night-lighting-aerial.jpg",
+  "/assets/exterior/patios/ashlar-slate-patio-dark-border.jpg",
+  "/assets/exterior/patios/flagstone-patio-fire-pit.jpg",
+  "/assets/exterior/patios/slate-skin-patio-stone-bench.jpg",
 ]
 
 export default function PatiosClient() {

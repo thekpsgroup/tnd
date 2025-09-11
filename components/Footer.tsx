@@ -52,13 +52,13 @@ export default function Footer() {
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/10">
               <h4 className="text-white font-semibold mb-3">Get Started Today</h4>
               <div className="space-y-2">
-                <a href="tel:903-603-4150" className="flex items-center gap-3 text-slate-200 hover:text-white transition-colors group">
+                <a href="tel:903-603-4515" className="flex items-center gap-3 text-slate-200 hover:text-white transition-colors group">
                   <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <span>(903) 603-4150</span>
+                  <span>(903) 603-4515</span>
                 </a>
                 <a href="mailto:brandon@tndtexas.com" className="flex items-center gap-3 text-slate-200 hover:text-white transition-colors group">
                   <div className="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center group-hover:bg-purple-500/30 transition-colors">
@@ -172,7 +172,7 @@ export default function Footer() {
               </li>
               <li className="text-slate-300 text-sm pt-2">
                 <div className="font-medium text-white mb-1">Phone</div>
-                (903) 603-4150
+                (903) 603-4515
               </li>
               <li className="text-slate-300 text-sm">
                 <div className="font-medium text-white mb-1">Location</div>

@@ -94,7 +94,7 @@ export function SchemaMarkup() {
       "url": "https://tndtexas.com",
       "logo": "https://tndtexas.com/assets/logos/logo.png",
       "description": "#1 Construction Company in Dallas Fort Worth. Expert remodeling contractors DFW specializing in kitchen remodels, bathroom renovations, roofing & home improvements.",
-      "telephone": "+1-903-603-4150",
+      "telephone": "+1-903-603-4515",
       "email": "brandon@tndtexas.com",
       "foundingDate": "2009",
       "priceRange": "$$",
@@ -163,7 +163,7 @@ export function SchemaMarkup() {
       "foundingDate": "2009",
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+1-903-603-4150",
+        "telephone": "+1-903-603-4515",
         "contactType": "Customer Service",
         "availableLanguage": "English",
         "hoursAvailable": {
@@ -317,7 +317,7 @@ export function SchemaMarkup() {
           "name": "How do I get started with my construction or remodeling project?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Getting started is easy! Contact us at (903) 603-4150 or fill out our online form for a free consultation. We'll visit your home, discuss your vision, and provide a detailed estimate with timeline and next steps."
+            "text": "Getting started is easy! Contact us at (903) 603-4515 or fill out our online form for a free consultation. We'll visit your home, discuss your vision, and provide a detailed estimate with timeline and next steps."
           }
         }
       ]

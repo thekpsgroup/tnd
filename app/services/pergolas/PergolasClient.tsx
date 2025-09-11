@@ -11,14 +11,14 @@ const PergolasDescription = () => (
 )
 
 const gallery = [
-  "/portfolio/pergolas/wood-deck-pergola.jpg",
-  "/portfolio/pergolas/deck-pergola-string-lights.jpg",
-  "/portfolio/pergolas/patio-pergola-stone-columns.jpg",
-  "/portfolio/pergolas/grey-deck-attached-pergola.jpg",
-  "/portfolio/pergolas/white-vinyl-pergola.jpg",
-  "/portfolio/pergolas/patio-pergola-under-deck.jpg",
-  "/portfolio/pergolas/composite-deck-pergola-corner.jpg",
-  "/portfolio/pergolas/deck-pergola-custom-design.jpg",
+  "/assets/exterior/pergolas/wood-deck-pergola.jpg",
+  "/assets/exterior/pergolas/deck-pergola-string-lights.jpg",
+  "/assets/exterior/pergolas/patio-pergola-stone-columns.jpg",
+  "/assets/exterior/pergolas/grey-deck-attached-pergola.jpg",
+  "/assets/exterior/pergolas/white-vinyl-pergola.jpg",
+  "/assets/exterior/pergolas/patio-pergola-under-deck.jpg",
+  "/assets/exterior/pergolas/composite-deck-pergola-corner.jpg",
+  "/assets/exterior/pergolas/deck-pergola-custom-design.jpg",
 ]
 
 export default function PergolasClient() {
